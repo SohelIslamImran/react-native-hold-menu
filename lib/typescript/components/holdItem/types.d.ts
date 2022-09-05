@@ -1,3 +1,4 @@
+import React from "react";
 import { ViewStyle } from "react-native";
 import { MenuItemProps } from "../menu/types";
 import { TransformOriginAnchorPosition } from "../../utils/calculations";
@@ -33,7 +34,7 @@ export type HoldItemProps = {
     [name: string]: any[];
   };
 
-  children: React.ReactElement | React.ReactElement[];
+  children: React.ReactElement | React.ReactElement[] | React.ReactNode;
 
   /**
    * Menu anchor position is calculated automaticly.
@@ -118,5 +119,5 @@ export type HoldItemProps = {
 };
 
 export type GestureHandlerProps = {
-  children: React.ReactElement | React.ReactElement[];
+  children: React.ReactElement | React.ReactElement[] | React.ReactNode;
 };

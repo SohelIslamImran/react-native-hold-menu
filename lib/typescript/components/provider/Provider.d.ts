@@ -6,5 +6,5 @@ export interface Store {
     dispatch?: React.Dispatch<Action>;
 }
 export declare let AnimatedIcon: any;
-declare const Provider: React.MemoExoticComponent<({ children, theme: selectedTheme, iconComponent, safeAreaInsets, ...backdropProps }: HoldMenuProviderProps) => JSX.Element>;
+declare const Provider: React.MemoExoticComponent<({ children, theme, iconComponent, safeAreaInsets, ...backdropProps }: HoldMenuProviderProps) => JSX.Element>;
 export default Provider;

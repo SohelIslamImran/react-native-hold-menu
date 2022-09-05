@@ -11,4 +11,4 @@ export declare const menuAnimationAnchor: (anchorPoint: TransformOriginAnchorPos
         translateY: number;
     };
 };
-export declare const getTransformOrigin: (posX: number, itemWidth: number, windowWidth: number, bottom?: boolean | undefined) => TransformOriginAnchorPosition;
+export declare const getTransformOrigin: (posX: number, itemWidth: number, windowWidth: number, bottom?: boolean) => TransformOriginAnchorPosition;

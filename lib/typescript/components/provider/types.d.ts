@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface HoldMenuProviderProps extends BackdropProps {
   /**
    * Theme of hold menu. Effects to backdrop and context menu styles. Optional.
@@ -8,7 +10,7 @@ export interface HoldMenuProviderProps extends BackdropProps {
    */
   theme?: "dark" | "light";
   iconComponent?: any;
-  children: React.ReactElement | React.ReactElement[];
+  children: React.ReactElement | React.ReactElement[] | React.ReactNode;
 
   /**
    * Set this to prevent the menu to be opened under the unsafe area.

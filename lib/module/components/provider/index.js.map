@@ -1,1 +1,1 @@
-{"version":3,"sources":["index.ts"],"names":["default"],"mappings":"AAAA,SAASA,OAAT,QAAwB,YAAxB","sourcesContent":["export { default } from \"./Provider\";\r\nexport type { HoldMenuProviderProps } from \"./types\";\r\n"]}
+{"version":3,"names":["default"],"sources":["index.ts"],"sourcesContent":["export { default } from \"./Provider\";\r\nexport type { HoldMenuProviderProps } from \"./types\";\r\n"],"mappings":"AAAA,SAASA,OAAT,QAAwB,YAAxB"}
