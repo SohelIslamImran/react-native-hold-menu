@@ -87,6 +87,9 @@ src/
 .eslintrc
 tsconfig.json
 yarn.lock
+.release-it.json
+templates/
+.auth-chancelog
 
 # ENV
 .env

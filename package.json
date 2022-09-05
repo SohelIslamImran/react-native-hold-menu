@@ -1,6 +1,6 @@
 {
   "name": "react-native-hold-menu",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "A performant, easy to use hold to open context menu for React Native powered by Reanimated.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -36,8 +36,6 @@
     "build": "bob build && yarn copy-dts",
     "copy-dts": "copyfiles -u 1 \"src/**/*.d.ts\" lib/typescript",
     "release": "release-it",
-    "example": "yarn --cwd example",
-    "bootstrap": "yarn install && yarn example",
     "version": "auto-changelog -p && git add ."
   },
   "dependencies": {

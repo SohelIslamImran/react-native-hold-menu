@@ -1,0 +1,1 @@
+{"version":3,"sources":["useInternal.ts"],"names":["useInternal","InternalContext"],"mappings":";;;;;;;AAAA;;AACA;;AAEO,MAAMA,WAAW,GAAG,MAAM,uBAAWC,wBAAX,CAA1B","sourcesContent":["import { useContext } from \"react\";\r\nimport { InternalContext } from \"../context\";\r\n\r\nexport const useInternal = () => useContext(InternalContext);\r\n"]}
