@@ -1,6 +1,12 @@
 # Changelog
 
-## [v0.2.1](https://github.com/SohelIslamImran/react-native-hold-menu/compare/v0.2.0...v0.2.1)
+## [v0.2.2](https://github.com/SohelIslamImran/react-native-hold-menu/compare/v0.2.1...v0.2.2)
+
+## [v0.2.1](https://github.com/SohelIslamImran/react-native-hold-menu/compare/v0.2.0...v0.2.1) - 2022-09-05
+
+#### Improvements
+
+- chore: release v0.2.1 ([14de3b4](https://github.com/SohelIslamImran/react-native-hold-menu/commit/14de3b4046d4a013405fd152f6865920c0c82fb1)).
 
 ## [v0.2.0](https://github.com/SohelIslamImran/react-native-hold-menu/compare/v0.1.6...v0.2.0) - 2022-09-05
 
