@@ -1,0 +1,1 @@
+{"version":3,"names":["default","useDeviceOrientation","useInternal"],"sources":["index.ts"],"sourcesContent":["export { default as useDeviceOrientation } from \"./useDeviceOrientation\";\r\nexport { useInternal } from \"./useInternal\";\r\n"],"mappings":"AAAA,SAASA,OAAO,IAAIC,oBAApB,QAAgD,wBAAhD;AACA,SAASC,WAAT,QAA4B,eAA5B"}
