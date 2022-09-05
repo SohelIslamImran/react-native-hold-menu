@@ -1,2 +1,2 @@
-export { default } from './FlatList';
-export type { HoldMenuFlatListProps } from './FlatList';
+export { default } from "./FlatList";
+export type { HoldMenuFlatListProps } from "./FlatList";

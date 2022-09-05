@@ -1,17 +1,17 @@
-import React, { useCallback } from 'react';
-import { TouchableOpacity } from 'react-native';
-import Animated, { useAnimatedStyle } from 'react-native-reanimated';
+import React, { useCallback } from "react";
+import { TouchableOpacity } from "react-native";
+import Animated, { useAnimatedStyle } from "react-native-reanimated";
 
-import Separator from './Separator';
-import styles from './styles';
+import Separator from "./Separator";
+import styles from "./styles";
 
-import { MenuItemProps } from './types';
-import { useInternal } from '../../hooks';
-import { CONTEXT_MENU_STATE } from '../../constants';
-import { BORDER_LIGHT_COLOR, BORDER_DARK_COLOR } from './constants';
-import isEqual from 'lodash.isequal';
-import { getColor } from './calculations';
-import { AnimatedIcon } from '../provider/Provider';
+import { MenuItemProps } from "./types";
+import { useInternal } from "../../hooks";
+import { CONTEXT_MENU_STATE } from "../../constants";
+import { BORDER_LIGHT_COLOR, BORDER_DARK_COLOR } from "./constants";
+import isEqual from "lodash.isequal";
+import { getColor } from "./calculations";
+import { AnimatedIcon } from "../provider/Provider";
 
 // @ts-ignore
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
@@ -26,7 +26,7 @@ const MenuItemComponent = ({ item, isLast }: MenuItemComponentProps) => {
 
   const borderStyles = useAnimatedStyle(() => {
     const borderBottomColor =
-      theme.value === 'dark' ? BORDER_DARK_COLOR : BORDER_LIGHT_COLOR;
+      theme.value === "dark" ? BORDER_DARK_COLOR : BORDER_LIGHT_COLOR;
 
     return {
       borderBottomColor,
@@ -44,7 +44,6 @@ const MenuItemComponent = ({ item, isLast }: MenuItemComponentProps) => {
       if (item.onPress) item.onPress(...params);
       state.value = CONTEXT_MENU_STATE.END;
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state, item]);
 
   return (
@@ -64,9 +63,9 @@ const MenuItemComponent = ({ item, isLast }: MenuItemComponentProps) => {
         </Animated.Text>
         {!item.isTitle &&
           item.icon &&
-          (AnimatedIcon && typeof item.icon === 'string' ? (
+          (AnimatedIcon && typeof item.icon === "string" ? (
             <AnimatedIcon name={item.icon} size={18} style={textColor} />
-          ) : typeof item.icon === 'function' ? (
+          ) : typeof item.icon === "function" ? (
             item.icon()
           ) : null)}
       </AnimatedTouchable>

@@ -1,6 +1,6 @@
-import { ViewStyle } from 'react-native';
-import { MenuItemProps } from '../menu/types';
-import { TransformOriginAnchorPosition } from '../../utils/calculations';
+import { ViewStyle } from "react-native";
+import { MenuItemProps } from "../menu/types";
+import { TransformOriginAnchorPosition } from "../../utils/calculations";
 
 export type HoldItemProps = {
   /**
@@ -70,7 +70,7 @@ export type HoldItemProps = {
    * @examples
    * theme="light"
    */
-  theme?: 'light' | 'dark';
+  theme?: "light" | "dark";
 
   /**
    * Set true if you want to open menu from bottom
@@ -88,7 +88,7 @@ export type HoldItemProps = {
    * @examples
    * activateOn="hold"
    */
-  activateOn?: 'tap' | 'double-tap' | 'hold';
+  activateOn?: "tap" | "double-tap" | "hold";
 
   /**
    * Set if you'd like to enable haptic feedback on activation
@@ -98,14 +98,14 @@ export type HoldItemProps = {
    * hapticFeedback="None"
    */
   hapticFeedback?:
-    | 'None'
-    | 'Selection'
-    | 'Light'
-    | 'Medium'
-    | 'Heavy'
-    | 'Success'
-    | 'Warning'
-    | 'Error';
+    | "None"
+    | "Selection"
+    | "Light"
+    | "Medium"
+    | "Heavy"
+    | "Success"
+    | "Warning"
+    | "Error";
 
   /**
    * Set true if you want to close menu when tap to HoldItem

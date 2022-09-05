@@ -1,7 +1,7 @@
-import React, { memo } from 'react';
+import React, { memo } from "react";
 
-import Animated, { useAnimatedProps } from 'react-native-reanimated';
-import { useInternal } from '../../hooks';
+import Animated, { useAnimatedProps } from "react-native-reanimated";
+import { useInternal } from "../../hooks";
 
 type IconComponentProps = {
   name: string;
@@ -23,7 +23,7 @@ const Icon = ({ iconComponent, name }: IconProps) => {
 
   const iconProps = useAnimatedProps(() => {
     return {
-      color: theme.value === 'light' ? 'black' : 'white',
+      color: theme.value === "light" ? "black" : "white",
     };
   }, [theme]);
 

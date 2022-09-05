@@ -23,13 +23,13 @@
     "reanimated",
     "menu"
   ],
-  "repository": "https://github.com/enesozturk/react-native-hold-menu",
+  "repository": "https://github.com/SohelIslamImran/react-native-hold-menu",
   "author": "Enes Ozturk (https://ozturkenes.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/enesozturk/react-native-hold-menu/issues"
+    "url": "https://github.com/SohelIslamImran/react-native-hold-menu/issues"
   },
-  "homepage": "https://enesozturk.github.io/react-native-hold-menu",
+  "homepage": "https://github.com/SohelIslamImran/react-native-hold-menu",
   "scripts": {
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",

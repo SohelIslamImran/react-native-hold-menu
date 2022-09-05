@@ -1,4 +1,4 @@
-import { useContext } from 'react';
-import { InternalContext } from '../context';
+import { useContext } from "react";
+import { InternalContext } from "../context";
 
 export const useInternal = () => useContext(InternalContext);

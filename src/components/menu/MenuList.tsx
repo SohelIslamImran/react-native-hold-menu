@@ -1,5 +1,5 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { StyleSheet } from "react-native";
 
 import Animated, {
   runOnJS,
@@ -10,28 +10,28 @@ import Animated, {
   useSharedValue,
   withSpring,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
 import {
   calculateMenuHeight,
   menuAnimationAnchor,
-} from '../../utils/calculations';
-import { BlurView } from 'expo-blur';
+} from "../../utils/calculations";
+import { BlurView } from "expo-blur";
 
-import MenuItems from './MenuItems';
+import MenuItems from "./MenuItems";
 
 import {
   SPRING_CONFIGURATION_MENU,
   HOLD_ITEM_TRANSFORM_DURATION,
   IS_IOS,
   CONTEXT_MENU_STATE,
-} from '../../constants';
+} from "../../constants";
 
-import styles from './styles';
-import { MenuItemProps } from './types';
-import { useInternal } from '../../hooks';
-import { deepEqual } from '../../utils/validations';
-import { leftOrRight } from './calculations';
+import styles from "./styles";
+import { MenuItemProps } from "./types";
+import { useInternal } from "../../hooks";
+import { deepEqual } from "../../utils/validations";
+import { leftOrRight } from "./calculations";
 
 const AnimatedView = Animated.createAnimatedComponent(BlurView);
 
@@ -42,7 +42,7 @@ const MenuListComponent = () => {
 
   const menuHeight = useDerivedValue(() => {
     const itemsWithSeparator = menuProps.value.items.filter(
-      item => item.withSeparator
+      (item) => item.withSeparator
     );
     return calculateMenuHeight(
       menuProps.value.items.length,
@@ -53,7 +53,7 @@ const MenuListComponent = () => {
 
   const messageStyles = useAnimatedStyle(() => {
     const itemsWithSeparator = menuProps.value.items.filter(
-      item => item.withSeparator
+      (item) => item.withSeparator
     );
 
     const translate = menuAnimationAnchor(
@@ -96,13 +96,13 @@ const MenuListComponent = () => {
   const animatedInnerContainerStyle = useAnimatedStyle(() => {
     return {
       backgroundColor:
-        theme.value === 'light'
+        theme.value === "light"
           ? IS_IOS
-            ? 'rgba(255, 255, 255, .75)'
-            : 'rgba(255, 255, 255, .95)'
+            ? "rgba(255, 255, 255, .75)"
+            : "rgba(255, 255, 255, .95)"
           : IS_IOS
-          ? 'rgba(0,0,0,0.5)'
-          : 'rgba(39, 39, 39, .8)',
+          ? "rgba(0,0,0,0.5)"
+          : "rgba(39, 39, 39, .8)",
     };
   }, [theme]);
 
@@ -117,7 +117,7 @@ const MenuListComponent = () => {
 
   useAnimatedReaction(
     () => menuProps.value.items,
-    _items => {
+    (_items) => {
       if (!deepEqual(_items, prevList.value)) {
         runOnJS(setter)(_items);
       }

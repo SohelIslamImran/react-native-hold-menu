@@ -1,29 +1,29 @@
-import React from 'react';
+import React from "react";
 
 import Animated, {
   useAnimatedStyle,
   withSpring,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 
-import MenuList from './MenuList';
+import MenuList from "./MenuList";
 
-import styles from './styles';
-import { useInternal } from '../../hooks';
+import styles from "./styles";
+import { useInternal } from "../../hooks";
 import {
   HOLD_ITEM_TRANSFORM_DURATION,
   CONTEXT_MENU_STATE,
   SPRING_CONFIGURATION,
-} from '../../constants';
+} from "../../constants";
 
 const MenuComponent = () => {
   const { state, menuProps } = useInternal();
 
   const wrapperStyles = useAnimatedStyle(() => {
-    const anchorPositionVertical = menuProps.value.anchorPosition.split('-')[0];
+    const anchorPositionVertical = menuProps.value.anchorPosition.split("-")[0];
 
     const top =
-      anchorPositionVertical === 'top'
+      anchorPositionVertical === "top"
         ? menuProps.value.itemHeight + menuProps.value.itemY + 8
         : menuProps.value.itemY - 8;
     const left = menuProps.value.itemX;

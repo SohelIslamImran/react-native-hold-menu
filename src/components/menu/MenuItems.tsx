@@ -1,9 +1,9 @@
-import React, { memo } from 'react';
+import React, { memo } from "react";
 
-import MenuItem from './MenuItem';
+import MenuItem from "./MenuItem";
 
-import isEqual from 'lodash.isequal';
-import { MenuItemProps } from './types';
+import isEqual from "lodash.isequal";
+import { MenuItemProps } from "./types";
 
 const MenuItemsComponent = ({ items }: { items: MenuItemProps[] }) => {
   return (

@@ -1,2 +1,2 @@
-export { default as useDeviceOrientation } from './useDeviceOrientation';
-export { useInternal } from './useInternal';
+export { default as useDeviceOrientation } from "./useDeviceOrientation";
+export { useInternal } from "./useInternal";

@@ -1,17 +1,17 @@
-import React, { memo } from 'react';
+import React, { memo } from "react";
 import {
   FlatList as RNFlatList,
   FlatListProps as RNFlatListProps,
-} from 'react-native';
+} from "react-native";
 
-import isEqual from 'lodash.isequal';
-import Animated from 'react-native-reanimated';
+import isEqual from "lodash.isequal";
+import Animated from "react-native-reanimated";
 
 const AnimatedFlatList = Animated.createAnimatedComponent(RNFlatList);
 
 export type HoldMenuFlatListProps<T> = Omit<
   RNFlatListProps<T>,
-  'scrollEventThrottle'
+  "scrollEventThrottle"
 >;
 
 const HoldMenuFlatListComponent = (props: HoldMenuFlatListProps<any>) => {

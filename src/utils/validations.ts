@@ -1,11 +1,11 @@
-import { MenuItemProps } from '../components/menu/types';
+import { MenuItemProps } from "../components/menu/types";
 
 function fieldAreSame(obj1: MenuItemProps, obj2: MenuItemProps) {
-  'worklet';
+  "worklet";
 
   const keys = Object.keys(obj1);
 
-  return keys.every(key => {
+  return keys.every((key) => {
     // @ts-ignore
     const val1 = obj1[key];
     // @ts-ignore
@@ -18,7 +18,7 @@ function fieldAreSame(obj1: MenuItemProps, obj2: MenuItemProps) {
 }
 
 function deepEqual(array1: MenuItemProps[], array2: MenuItemProps[]) {
-  'worklet';
+  "worklet";
 
   const areArrays = Array.isArray(array1) && Array.isArray(array2);
   const areSameLength = areArrays && array2 && array1.length === array2.length;

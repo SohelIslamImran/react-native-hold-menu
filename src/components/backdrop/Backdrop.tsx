@@ -1,33 +1,33 @@
-import React, { memo } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { memo } from "react";
+import { StyleSheet } from "react-native";
 import Animated, {
   useAnimatedGestureHandler,
   useAnimatedProps,
   useAnimatedStyle,
   withDelay,
   withTiming,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 import {
   TapGestureHandler,
   TapGestureHandlerGestureEvent,
-} from 'react-native-gesture-handler';
+} from "react-native-gesture-handler";
 
 // Components
-import { BlurView } from 'expo-blur';
+import { BlurView } from "expo-blur";
 
 // Utils
-import { styles } from './styles';
+import { styles } from "./styles";
 import {
   CONTEXT_MENU_STATE,
   HOLD_ITEM_TRANSFORM_DURATION,
   WINDOW_HEIGHT,
-} from '../../constants';
+} from "../../constants";
 import {
   BACKDROP_LIGHT_BACKGROUND_COLOR,
   BACKDROP_DARK_BACKGROUND_COLOR,
-} from './constants';
-import { useInternal } from '../../hooks';
-import { BackdropProps } from '../provider/types';
+} from "./constants";
+import { useInternal } from "../../hooks";
+import { BackdropProps } from "../provider/types";
 
 const AnimatedBlurView = Animated.createAnimatedComponent(BlurView);
 
@@ -107,7 +107,7 @@ const BackdropComponent = ({
 
   const animatedInnerContainerStyle = useAnimatedStyle(() => {
     const backgroundColor =
-      theme.value === 'light'
+      theme.value === "light"
         ? backdropLightBackgroundColor
         : backdropDarkBackgroundColor;
 

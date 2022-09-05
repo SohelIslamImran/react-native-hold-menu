@@ -1,5 +1,5 @@
-import React, { memo, useMemo } from 'react';
-import { ViewProps } from 'react-native';
+import React, { memo, useMemo } from "react";
+import { ViewProps } from "react-native";
 
 //#region reanimated & gesture handler
 import {
@@ -7,7 +7,7 @@ import {
   LongPressGestureHandler,
   TapGestureHandlerGestureEvent,
   LongPressGestureHandlerGestureEvent,
-} from 'react-native-gesture-handler';
+} from "react-native-gesture-handler";
 import Animated, {
   measure,
   runOnJS,
@@ -21,13 +21,13 @@ import Animated, {
   withSequence,
   withSpring,
   useAnimatedReaction,
-} from 'react-native-reanimated';
+} from "react-native-reanimated";
 //#endregion
 
 //#region dependencies
-import { Portal } from '@gorhom/portal';
-import { nanoid } from 'nanoid/non-secure';
-import * as Haptics from 'expo-haptics';
+import { Portal } from "@gorhom/portal";
+import { nanoid } from "nanoid/non-secure";
+import * as Haptics from "expo-haptics";
 //#endregion
 
 //#region utils & types
@@ -35,7 +35,7 @@ import {
   TransformOriginAnchorPosition,
   getTransformOrigin,
   calculateMenuHeight,
-} from '../../utils/calculations';
+} from "../../utils/calculations";
 import {
   HOLD_ITEM_TRANSFORM_DURATION,
   HOLD_ITEM_SCALE_DOWN_DURATION,
@@ -44,13 +44,13 @@ import {
   WINDOW_HEIGHT,
   WINDOW_WIDTH,
   CONTEXT_MENU_STATE,
-} from '../../constants';
-import { useDeviceOrientation } from '../../hooks';
-import styles from './styles';
+} from "../../constants";
+import { useDeviceOrientation } from "../../hooks";
+import styles from "./styles";
 
-import type { HoldItemProps, GestureHandlerProps } from './types';
-import styleGuide from '../../styleGuide';
-import { useInternal } from '../../hooks';
+import type { HoldItemProps, GestureHandlerProps } from "./types";
+import styleGuide from "../../styleGuide";
+import { useInternal } from "../../hooks";
 //#endregion
 
 type Context = { didMeasureLayout: boolean };
@@ -84,16 +84,16 @@ const HoldItemComponent = ({
   const transformValue = useSharedValue<number>(0);
 
   const transformOrigin = useSharedValue<TransformOriginAnchorPosition>(
-    menuAnchorPosition || 'top-right'
+    menuAnchorPosition || "top-right"
   );
 
   const key = useMemo(() => `hold-item-${nanoid()}`, []);
   const menuHeight = useMemo(() => {
-    const itemsWithSeparator = items.filter(item => item.withSeparator);
+    const itemsWithSeparator = items.filter((item) => item.withSeparator);
     return calculateMenuHeight(items.length, itemsWithSeparator.length);
   }, [items]);
 
-  const isHold = !activateOn || activateOn === 'hold';
+  const isHold = !activateOn || activateOn === "hold";
   //#endregion
 
   //#region refs
@@ -102,19 +102,19 @@ const HoldItemComponent = ({
 
   //#region functions
   const hapticResponse = () => {
-    const style = !hapticFeedback ? 'Medium' : hapticFeedback;
+    const style = !hapticFeedback ? "Medium" : hapticFeedback;
     switch (style) {
-      case `Selection`:
+      case "Selection":
         Haptics.selectionAsync();
         break;
-      case `Light`:
-      case `Medium`:
-      case `Heavy`:
+      case "Light":
+      case "Medium":
+      case "Heavy":
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle[style]);
         break;
-      case `Success`:
-      case `Warning`:
-      case `Error`:
+      case "Success":
+      case "Warning":
+      case "Error":
         Haptics.notificationAsync(Haptics.NotificationFeedbackType[style]);
         break;
       default:
@@ -124,7 +124,7 @@ const HoldItemComponent = ({
 
   //#region worklet functions
   const activateAnimation = (ctx: any) => {
-    'worklet';
+    "worklet";
     if (!ctx.didMeasureLayout) {
       const measured = measure(containerRef);
 
@@ -137,7 +137,7 @@ const HoldItemComponent = ({
         const position = getTransformOrigin(
           measured.pageX,
           itemRectWidth.value,
-          deviceOrientation === 'portrait' ? WINDOW_WIDTH : WINDOW_HEIGHT,
+          deviceOrientation === "portrait" ? WINDOW_WIDTH : WINDOW_HEIGHT,
           bottom
         );
         transformOrigin.value = position;
@@ -146,12 +146,12 @@ const HoldItemComponent = ({
   };
 
   const calculateTransformValue = () => {
-    'worklet';
+    "worklet";
 
     const height =
-      deviceOrientation === 'portrait' ? WINDOW_HEIGHT : WINDOW_WIDTH;
+      deviceOrientation === "portrait" ? WINDOW_HEIGHT : WINDOW_WIDTH;
 
-    const isAnchorPointTop = transformOrigin.value.includes('top');
+    const isAnchorPointTop = transformOrigin.value.includes("top");
 
     let tY = 0;
     if (!disableMove) {
@@ -175,7 +175,7 @@ const HoldItemComponent = ({
   };
 
   const setMenuProps = () => {
-    'worklet';
+    "worklet";
 
     menuProps.value = {
       itemHeight: itemRectHeight.value,
@@ -191,20 +191,20 @@ const HoldItemComponent = ({
   };
 
   const scaleBack = () => {
-    'worklet';
+    "worklet";
     itemScale.value = withTiming(1, {
       duration: HOLD_ITEM_TRANSFORM_DURATION / 2,
     });
   };
 
   const onCompletion = (isFinised?: boolean) => {
-    'worklet';
+    "worklet";
     const isListValid = items && items.length > 0;
     if (isFinised && isListValid) {
       state.value = CONTEXT_MENU_STATE.ACTIVE;
       isActive.value = true;
       scaleBack();
-      if (hapticFeedback !== 'None') {
+      if (hapticFeedback !== "None") {
         runOnJS(hapticResponse)();
       }
     }
@@ -215,7 +215,7 @@ const HoldItemComponent = ({
   };
 
   const scaleHold = () => {
-    'worklet';
+    "worklet";
     itemScale.value = withTiming(
       HOLD_ITEM_SCALE_DOWN_VALUE,
       { duration: HOLD_ITEM_SCALE_DOWN_DURATION },
@@ -224,7 +224,7 @@ const HoldItemComponent = ({
   };
 
   const scaleTap = () => {
-    'worklet';
+    "worklet";
     isAnimationStarted.value = true;
 
     itemScale.value = withSequence(
@@ -247,9 +247,9 @@ const HoldItemComponent = ({
    * To prevent this, it is better to check is animation already started.
    */
   const canCallActivateFunctions = () => {
-    'worklet';
+    "worklet";
     const willActivateWithTap =
-      activateOn === 'double-tap' || activateOn === 'tap';
+      activateOn === "double-tap" || activateOn === "tap";
 
     return (
       (willActivateWithTap && !isAnimationStarted.value) || !willActivateWithTap
@@ -292,7 +292,7 @@ const HoldItemComponent = ({
     TapGestureHandlerGestureEvent,
     Context
   >({
-    onActive: _ => {
+    onActive: (_) => {
       if (closeOnTap) state.value = CONTEXT_MENU_STATE.END;
     },
   });
@@ -333,7 +333,7 @@ const HoldItemComponent = ({
 
     return {
       zIndex: 10,
-      position: 'absolute',
+      position: "absolute",
       top: itemRectY.value,
       left: itemRectX.value,
       width: itemRectWidth.value,
@@ -357,14 +357,14 @@ const HoldItemComponent = ({
   );
 
   const animatedPortalProps = useAnimatedProps<ViewProps>(() => ({
-    pointerEvents: isActive.value ? 'auto' : 'none',
+    pointerEvents: isActive.value ? "auto" : "none",
   }));
   //#endregion
 
   //#region animated effects
   useAnimatedReaction(
     () => state.value,
-    _state => {
+    (_state) => {
       if (_state === CONTEXT_MENU_STATE.END) {
         isActive.value = false;
       }
@@ -375,7 +375,7 @@ const HoldItemComponent = ({
   //#region components
   const GestureHandler = useMemo(() => {
     switch (activateOn) {
-      case `double-tap`:
+      case "double-tap":
         return ({ children: handlerChildren }: GestureHandlerProps) => (
           <TapGestureHandler
             numberOfTaps={2}
@@ -384,7 +384,7 @@ const HoldItemComponent = ({
             {handlerChildren}
           </TapGestureHandler>
         );
-      case `tap`:
+      case "tap":
         return ({ children: handlerChildren }: GestureHandlerProps) => (
           <TapGestureHandler
             numberOfTaps={1}
